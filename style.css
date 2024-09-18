@@ -1,0 +1,68 @@
+body{
+    text-align: center;
+    font-style: italic;
+
+}
+
+.main_block{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 3fr;
+    gap: 10px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ширина на 100% сторінки */
+    height: 100%; /* Висота на 100% вікна браузера */
+}
+.block_1{
+    background-color: darkcyan;
+    grid-row: span 2;
+}
+
+.block_2{
+    background-color: cornflowerblue;
+    grid-column: span 2;
+    position: relative;
+}
+
+.block_3{
+    background-color: cadetblue;
+}
+
+.block_4{
+    background-color: tomato;
+}
+
+.block_5{
+    background-color: darkkhaki;
+}
+
+.block_x{
+    background-color: forestgreen;
+    padding: 0 10px 0 10px;
+    margin-right: 20px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
+.block_y{
+    background-color: darkseagreen;
+    padding: 0 10px 0 10px;
+    margin-left: 20px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.block_6{
+    background-color: darkorange;
+    height: 100px;
+    grid-column: span 3;
+    position: relative;
+}
