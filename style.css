@@ -1,6 +1,6 @@
 body{
     text-align: center;
-    font-style: italic;
+    font-family: Monaco, serif;
     overflow-y: auto;
 }
 
@@ -22,14 +22,14 @@ body{
 }
 
 .block_2{
-    background-color: seagreen;
     grid-column: span 2;
     position: relative;
     overflow: hidden;
+    background-size: cover;
+    background-image: url('Спектр.png');
 }
 
 .block_x{
-    background-color: mediumseagreen;
     padding: 10px;
     margin-right: 20px;
     position: absolute;
@@ -37,6 +37,7 @@ body{
     top: 50%;
     transform: translateY(-50%);
     max-height: 70%;
+    font-family: "Brush Script MT", serif;
 }
 .block_x h1{
     margin: 0;
@@ -50,6 +51,7 @@ body{
 .block_3{
     background-color: forestgreen;
     height: 10%;
+    font-size: x-large;
 }
 
 .block_5{
@@ -61,7 +63,6 @@ body{
 }
 
 .block_y{
-    background-color: lawngreen;
     padding: 10px;
     margin-left: 20px;
     position: absolute;
@@ -69,18 +70,19 @@ body{
     top: 50%;
     transform: translateY(-50%);
     max-height: 70%;
+    font-family: "Brush Script MT", serif;
 }
-.block_y h4{
+.block_y h3{
     margin: 0;
 }
 
 .block_6{
-    background-color: darkgreen;
     overflow: hidden;
     height: 50px;
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-
+    background-size: cover;
+    background-image: url('Трава.png');
 }
