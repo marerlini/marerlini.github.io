@@ -8,7 +8,6 @@ body{
     display: grid;
     grid-template-columns: 2fr 5fr 1fr; /* 3 стовпці: перший і третій займають 1 частину, середній — 2 частини */
     grid-template-rows: 50px auto; /* 3 рядки, кожен з яких займає 1 частину простору */
-    background-color: blueviolet;
     position: absolute;
     top: 0;
     left: 0;
@@ -23,14 +22,14 @@ body{
 }
 
 .block_2{
-    background-color: cornflowerblue;
+    background-color: seagreen;
     grid-column: span 2;
     position: relative;
     overflow: hidden;
 }
 
 .block_x{
-    background-color: forestgreen;
+    background-color: mediumseagreen;
     padding: 10px;
     margin-right: 20px;
     position: absolute;
@@ -43,18 +42,18 @@ body{
     margin: 0;
 }
 
+.block_4{
+    background-color: darkseagreen;
+
+}
+
 .block_3{
-    background-color: cadetblue;
+    background-color: forestgreen;
     height: 10%;
 }
 
-.block_4{
-    background-color: tomato;
-
-}
-
 .block_5{
-    background-color: darkkhaki;
+    background-color: palegreen;
     overflow-y: auto;
 }
 .block_5 text{
@@ -62,7 +61,7 @@ body{
 }
 
 .block_y{
-    background-color: darkseagreen;
+    background-color: lawngreen;
     padding: 10px;
     margin-left: 20px;
     position: absolute;
@@ -76,7 +75,7 @@ body{
 }
 
 .block_6{
-    background-color: darkorange;
+    background-color: darkgreen;
     overflow: hidden;
     height: 50px;
     position: absolute;
