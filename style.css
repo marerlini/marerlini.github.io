@@ -1,7 +1,11 @@
 body{
     text-align: center;
     font-family: Monaco, serif;
-    overflow-y: auto;
+    /*overflow-y: auto;*/
+    overflow: hidden;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
 }
 
 .main_block{
@@ -19,8 +23,12 @@ body{
 .block_1{
     background-color: darkcyan;
     grid-row: span 2;
+    overflow: hidden;
 }
-
+.block_1 img{
+    object-fit: cover;
+    width: 100%;
+}
 .block_2{
     grid-column: span 2;
     position: relative;
@@ -39,9 +47,6 @@ body{
     max-height: 70%;
     font-family: "Brush Script MT", serif;
 }
-.block_x h1{
-    margin: 0;
-}
 
 .block_4{
     background-color: darkseagreen;
@@ -50,8 +55,8 @@ body{
 
 .block_3{
     background-color: forestgreen;
-    height: 10%;
     font-size: x-large;
+    min-height: fit-content;
 }
 
 .block_5{
@@ -59,7 +64,7 @@ body{
     overflow-y: auto;
 }
 .block_5 text{
-    margin: 10px;
+    padding: 20px;
 }
 
 .block_y{
@@ -71,9 +76,6 @@ body{
     transform: translateY(-50%);
     max-height: 70%;
     font-family: "Brush Script MT", serif;
-}
-.block_y h3{
-    margin: 0;
 }
 
 .block_6{
