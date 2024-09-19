@@ -19,7 +19,7 @@ p{
 .main_block{
     display: grid;
     grid-template-columns: 2fr 5fr 2fr;
-    grid-template-rows: 50px auto 70px;
+    grid-template-rows: 50px auto 50px;
     position: absolute;
     top: 0;
     left: 0;
@@ -99,4 +99,12 @@ p{
     height: 50px;
     position: absolute;
     right: 20px;
+}
+
+
+.Hardcode{
+    width: 100%;
+    height: 100%;
+    background-color: darkseagreen;
+    grid-column: span 3;
 }
