@@ -1,21 +1,22 @@
 body{
     text-align: center;
     font-style: italic;
-
+    overflow-y: auto;
 }
 
 .main_block{
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 1fr 3fr;
-    gap: 10px;
-
+    grid-template-columns: 2fr 5fr 1fr; /* 3 стовпці: перший і третій займають 1 частину, середній — 2 частини */
+    grid-template-rows: 50px auto; /* 3 рядки, кожен з яких займає 1 частину простору */
+    background-color: blueviolet;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%; /* Ширина на 100% сторінки */
-    height: 100%; /* Висота на 100% вікна браузера */
+    bottom: 50px;
+    width: 100%;
+    height: 100%;
 }
+
 .block_1{
     background-color: darkcyan;
     grid-row: span 2;
@@ -25,44 +26,62 @@ body{
     background-color: cornflowerblue;
     grid-column: span 2;
     position: relative;
-}
-
-.block_3{
-    background-color: cadetblue;
-}
-
-.block_4{
-    background-color: tomato;
-}
-
-.block_5{
-    background-color: darkkhaki;
+    overflow: hidden;
 }
 
 .block_x{
     background-color: forestgreen;
-    padding: 0 10px 0 10px;
+    padding: 10px;
     margin-right: 20px;
     position: absolute;
     right: 0;
     top: 50%;
     transform: translateY(-50%);
+    max-height: 70%;
+}
+.block_x h1{
+    margin: 0;
+}
 
+.block_3{
+    background-color: cadetblue;
+    height: 10%;
+}
+
+.block_4{
+    background-color: tomato;
+
+}
+
+.block_5{
+    background-color: darkkhaki;
+    overflow-y: auto;
+}
+.block_5 text{
+    margin: 10px;
 }
 
 .block_y{
     background-color: darkseagreen;
-    padding: 0 10px 0 10px;
+    padding: 10px;
     margin-left: 20px;
     position: absolute;
     left: 0;
     top: 50%;
     transform: translateY(-50%);
+    max-height: 70%;
+}
+.block_y h4{
+    margin: 0;
 }
 
 .block_6{
     background-color: darkorange;
-    height: 100px;
-    grid-column: span 3;
-    position: relative;
+    overflow: hidden;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
 }
