@@ -6,8 +6,8 @@ body{
 
 .main_block{
     display: grid;
-    grid-template-columns: 2fr 5fr 1fr; /* 3 стовпці: перший і третій займають 1 частину, середній — 2 частини */
-    grid-template-rows: 50px auto; /* 3 рядки, кожен з яких займає 1 частину простору */
+    grid-template-columns: 2fr 5fr 1fr;
+    grid-template-rows: 50px auto;
     position: absolute;
     top: 0;
     left: 0;
@@ -26,7 +26,7 @@ body{
     position: relative;
     overflow: hidden;
     background-size: cover;
-    background-image: url('Спектр.png');
+    background-image: url('Картинки/Спектр.png');
 }
 
 .block_x{
@@ -84,5 +84,5 @@ body{
     left: 0;
     width: 100%;
     background-size: cover;
-    background-image: url('Трава.png');
+    background-image: url('Картинки/Трава.png');
 }
