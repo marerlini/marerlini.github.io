@@ -33,6 +33,7 @@ p{
     grid-row: span 2;
     overflow: hidden;
     overflow-y: auto;
+    font-size: 2vw;
 }
 .block_1 img{
     object-fit: cover;
@@ -60,13 +61,13 @@ p{
 .block_4{
     background-color: yellowgreen;
     padding: 10px;
-    overflow-y: auto;
-    min-width: 175px;
+}
+.block_4 li{
+    font-size: 2vw;
 }
 
 .block_3{
     background-color: forestgreen;
-    min-height: fit-content;
 }
 
 .block_5{
