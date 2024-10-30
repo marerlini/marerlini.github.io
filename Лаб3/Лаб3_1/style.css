@@ -1,6 +1,6 @@
 body{
     text-align: center;
-    font-family: Monaco, serif;
+    font-family: 'Arial Hebrew', serif;
     padding: 0;
     margin: 0;
 }
@@ -55,6 +55,7 @@ a{
     padding-right: 2vh;
     text-align: right;
     font-size: 2vw;
+    font-family: 'Arial Black',serif;
 }
 
 .block_4{
@@ -86,6 +87,7 @@ a{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: 'Arial Black',serif;
 }
 .block_6 img{
     height: 8vh;
