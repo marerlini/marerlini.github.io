@@ -1,0 +1,103 @@
+body{
+    text-align: center;
+    font-family: Monaco, serif;
+    padding: 0;
+    margin: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+ul{
+    text-align: left;
+    margin: 0;
+}
+p{
+    margin: 15px;
+    text-align: justify;
+}
+a{
+    text-decoration: none;
+}
+
+.up_menu{
+    margin: 0;
+    padding: 0;
+    position: sticky;
+    top: 0;
+}
+
+.main_block{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.block_1{
+    order: 2;
+    background-color: darkseagreen;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+}
+.block_1 img{
+    justify-self: end;
+    object-fit: cover;
+    width: 50%;
+    grid-column: 2;
+    grid-row: 1/ span 2;
+}
+
+.block_2{
+    height: 5vh;
+    background-size: cover;
+    background-image: url('Картинки/Спектр.png');
+    padding-right: 2vh;
+    text-align: right;
+}
+.block_2 h1{
+    font-family: "Brush Script MT", serif;
+}
+
+.block_4{
+    font-size: 3vw;
+    background-color: lightgreen;
+}
+
+.block_4 h2{
+    font-size: 4vw;
+}
+
+.block_3{
+    background-color: seagreen;
+}
+
+.block_5{
+    order: 1;
+    background-color: lightblue;
+}
+.block_5 text{
+    padding: 20px;
+}
+
+.block_6{
+    order: 3;
+    padding: 1vh;
+    background-size: cover;
+    background-image: url('Картинки/Трава.png');
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.block_6 img{
+    height: 8vh;
+
+}
+.block_6 h2{
+    font-family: "Brush Script MT", serif;
+}
+
+.colors{
+    display: flex;
+    justify-content: space-around;
+}
