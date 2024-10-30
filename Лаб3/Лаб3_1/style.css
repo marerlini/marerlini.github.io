@@ -54,9 +54,7 @@ a{
     background-image: url('Картинки/Спектр.png');
     padding-right: 2vh;
     text-align: right;
-}
-.block_2 h1{
-    font-family: "Brush Script MT", serif;
+    font-size: 2vw;
 }
 
 .block_4{
@@ -92,9 +90,6 @@ a{
 .block_6 img{
     height: 8vh;
 
-}
-.block_6 h2{
-    font-family: "Brush Script MT", serif;
 }
 
 .colors{
