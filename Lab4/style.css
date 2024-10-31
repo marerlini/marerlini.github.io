@@ -1,0 +1,123 @@
+body{
+    margin: 0;
+    font-family: "Roboto Thin", sans-serif;
+    background: linear-gradient(
+            180deg,
+            #f1c50e,
+            #f1c50e 34vh,
+            #0d244c 34vh,
+            #0d244c 100vh
+    );
+}
+
+.up{
+    background-color: rgb(255, 255, 255);
+    height: 6vh;
+    /*position: sticky;*/
+    /*top: 0;*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 15vw;
+    padding-left: 15vw;
+}
+.up img{
+    height: 3vh;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    height: 82vh;
+    padding-top: 6vh;
+}
+
+.heart{
+    width: 67vw;
+    display: grid;
+    grid-template-columns: repeat(4, 16vw);
+    grid-template-rows: 34vh 27vh;
+    column-gap: 1vw;
+    row-gap: 5vh;
+
+}
+
+.people1{
+    width: 100%;
+    align-self: start;
+}
+.people2{
+    width: 100%;
+    align-self: end;
+}
+
+.block{
+    background-color: #f6f7fa;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2vh;
+
+}
+.block img{
+    width: 6vw;
+}
+.block .star{
+    font-size: 55%;
+    color:#232529;
+    margin-bottom: 0;
+}
+.block p{
+    font-size: 30%;
+    color: #817a79;
+    line-height: 1.5;
+    text-align: center;
+}
+.block a{
+    margin-top: 1vh;
+    text-decoration: none;
+    border-bottom: #232529 1px solid;
+    font-size: 30%;
+    color: #817a79;
+}
+
+.down{
+    background-color: rgb(51, 51, 51);
+    height: 12vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+}
+.down p{
+    text-align: center;
+    color: #e7e6e8;
+    font-size: 1vh;
+}
+@media(max-width: 768px){
+    .up{
+        position: sticky;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 5vw;
+        padding-left: 5vw;
+    }
+
+    main{
+    }
+
+    .heart{
+        width: 67vw;
+        display: grid;
+        grid-template-columns: 80vw;
+        grid-template-rows: repeat(8,34vh);
+        column-gap: 1vw;
+        row-gap: 5vh;
+    }
+
+}
