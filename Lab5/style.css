@@ -1,0 +1,220 @@
+body{
+    text-align: center;
+    font-family: Monaco, serif;
+    padding: 0;
+    margin: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+ul{
+    text-align: left;
+}
+p{
+    margin: 15px;
+    text-align: justify;
+}
+a{
+    text-decoration: none;
+}
+
+.main_block{
+    margin: 0;
+    padding: 0;
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 20vw auto 20vw;
+    grid-template-rows: 8vh auto 10vh;
+}
+
+.block_1{
+    background-color: darkseagreen;
+    grid-column: 1;
+    grid-row: 1 /span 2;
+}
+.block_1 img{
+    object-fit: cover;
+    width: 100%;
+}
+.block_1 h2{
+    margin: 0.5vw;
+}
+
+.block_2{
+    background-size: cover;
+    background-image: url('Картинки/Спектр.png');
+    grid-column: 2/span 2;
+    grid-row: 1;
+    text-align: right;
+    position: relative;
+}
+.block_2 h1{
+    font-family: "Brush Script MT", serif;
+    padding-right: 2vh;
+}
+
+.block_4{
+    background-color: lightgreen;
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.block_3{
+    background-color: seagreen;
+}
+
+.block_5{
+    background-color: lightblue;
+    grid-column: 2;
+    grid-row: 2;
+}
+.block_5 text{
+    padding: 20px;
+}
+
+.form{
+    margin: 2vw;
+    display: none;
+ }
+
+.form button{
+    background-image: url('Картинки/Соняхи.jpg');
+    background-size: auto 100%;
+    background-repeat: repeat-x;
+    margin: 1%;
+    width: 100%;
+    height: fit-content;
+    min-height: 4vw;
+    font-size: 150%;
+    cursor: pointer;
+    border-radius: 10px;
+    padding-bottom: 1%;
+    padding-top: 0;
+}
+
+
+.block_6{
+    padding: 1vh;
+    background-size: cover;
+    background-image: url('Картинки/Трава.png');
+    grid-column: 1/span 3;
+    grid-row: 3;
+
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    align-items: center;
+}
+.block_6 img{
+    height: 8vh;
+}
+.block_6 h2{
+    font-family: "Brush Script MT", serif;
+}
+
+@media(max-width: 768px){
+    body{
+        text-align: center;
+        font-family: 'Arial Hebrew', serif;
+        padding: 0;
+        margin: 0;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+    }
+    ul{
+        text-align: left;
+        margin: 0;
+    }
+    p{
+        margin: 15px;
+        text-align: justify;
+    }
+    a{
+        text-decoration: none;
+    }
+
+    .main_block{
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .block_1{
+        order: 4;
+        background-color: darkseagreen;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+        overflow-y: initial;
+    }
+    .block_1 img{
+        justify-self: end;
+        object-fit: cover;
+        width: 50%;
+        grid-column: 2;
+        grid-row: 1/ span 2;
+    }
+
+    .block_2{
+        order: 1;
+        position: sticky;
+        top: 0;
+        height: 30px;
+        background-size: cover;
+        background-image: url('Картинки/Спектр.png');
+        padding-right: 2vh;
+        text-align: right;
+        font-size: 8px;
+    }
+    .block_2 h1{
+        font-family: 'Arial Black',serif;
+    }
+
+    .block_4{
+        order: 2;
+        position: sticky;
+        top: 30px;
+        font-size: 3vw;
+        background-color: lightgreen;
+    }
+    .block_4 h2{
+        font-size: 4vw;
+    }
+
+    .block_3{
+        background-color: seagreen;
+    }
+
+    .block_5{
+        order: 3;
+        background-color: lightblue;
+        overflow-y: initial;
+    }
+    .block_5 text{
+        padding: 20px;
+    }
+
+    .block_6{
+        order: 5;
+        padding: 1vh;
+        background-size: cover;
+        background-image: url('Картинки/Трава.png');
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .block_6 img{
+        height: 8vh;
+
+    }
+    .block_6 h2{
+        font-family: 'Arial Black',serif;
+    }
+
+    .colors{
+        display: flex;
+        justify-content: space-around;
+    }
+}
