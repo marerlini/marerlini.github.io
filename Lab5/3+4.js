@@ -23,6 +23,27 @@ function eraseCookie(name) {
     document.cookie = name + '=; Max-Age=-99999999; path=/';
 }
 
+document.querySelector('.block_5').innerHTML += `
+<div class="form" id="form">
+                <h2>Введіть 10 чисел</h2>
+                <form id="numberForm">
+                    <label>
+                        <input type="number">
+                        <input type="number">
+                        <input type="number">
+                        <input type="number">
+                        <input type="number">
+                        <input type="number">
+                        <input type="number">
+                        <input type="number">
+                        <input type="number">
+                        <input type="number">
+                    </label>
+                    <button type="button" onclick="findMinMax()">Знайти мінімальне та максимальне значення</button>
+                </form>
+            </div>
+`;
+
 function findMinMax() {
     var form = document.getElementById('numberForm');
     var numbers = [];
@@ -65,7 +86,12 @@ function setBorderColor() {
     return color;
 }
 
-
+document.querySelector('.block_2').innerHTML += `
+<div class="color_pic" tabindex="0">
+                <label for="borderColor">Вкажіть колір рамки</label>
+                <input type="color" id="borderColor" name="borderColor">
+            </div>
+`;
 window.onload = function() {
     var blocks = document.querySelectorAll('.block_1, .block_2, .block_3, .block_4, .block_5, .block_6');
     var block2 = document.querySelector('.block_2');
@@ -116,8 +142,3 @@ window.onload = function() {
     }
 }
 
-// Додаємо атрибут tabindex для блоку color_pic, щоб він міг отримати фокус
-document.addEventListener("DOMContentLoaded", function() {
-    var colorPic = document.querySelector('.color_pic');
-    colorPic.setAttribute('tabindex', '0');
-});

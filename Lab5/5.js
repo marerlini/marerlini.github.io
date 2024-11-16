@@ -3,7 +3,6 @@ var block5 = document.querySelector('.block_5');
 document.querySelector('.block_1').innerHTML += `<div id="pictures" style="display: none;" class="pictures"></div>`;;
 var pictures = document.getElementById('pictures')
 
-// Додаємо слухач події для виділення тексту
 blockY.addEventListener('mouseup', function() {
     var selection = window.getSelection().toString();
     if (selection) {
@@ -13,7 +12,7 @@ blockY.addEventListener('mouseup', function() {
 
 function createImageForm() {
     var formHtml = `
-        <div id="imageForm" style="display: none;">
+        <div class="imageForm" id="imageForm" style="display: none;">
             <input type="text" id="imageUrl" placeholder="Введіть URL зображення">
             <button id="saveImage">Зберегти зображення</button>
             <button id="deleteImages">Видалити всі зображення</button>
@@ -24,7 +23,6 @@ function createImageForm() {
     document.getElementById('saveImage').addEventListener('click', saveImage);
     document.getElementById('deleteImages').addEventListener('click', deleteImages);
 }
-
 function toggleImageForm(show) {
     var imageForm = document.getElementById('imageForm');
     if (!imageForm) {
