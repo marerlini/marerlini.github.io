@@ -1,6 +1,6 @@
 var blockY = document.getElementById('header2');
 var block5 = document.querySelector('.block_5');
-document.querySelector('.block_1').innerHTML += `<div id="pictures" style="display: none;" class="pictures"></div>`;;
+document.querySelector('.block_1').innerHTML += `<div id="pictures" style="display: none;" class="pictures"></div>`;
 var pictures = document.getElementById('pictures')
 
 blockY.addEventListener('mouseup', function() {
