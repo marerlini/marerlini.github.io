@@ -33,12 +33,30 @@ a{
     grid-row: 1 /span 2;
 }
 .block_1 img{
-    object-fit: cover;
+     margin: 5%;
+     width: 90%;
+ }
+.block_1 img.frog_pic{
     width: 100%;
+    margin: 0;
 }
 .block_1 h2{
     margin: 0.5vw;
 }
+
+.block_2_page{
+    background-size: cover;
+    background-image: url('Картинки/Спектр.png');
+    grid-column: 2/span 2;
+    grid-row: 1;
+    text-align: right;
+    position: relative;
+}
+.block_2_page h1{
+    font-family: "Brush Script MT", serif;
+    padding-right: 2vh;
+}
+
 
 .block_2{
     background-size: cover;
@@ -59,7 +77,6 @@ a{
 
 .color_pic{
     padding-left: 1vw;
-    /*border: 3px dashed lightskyblue;*/
     font-size: 200%;
     display: flex;
     flex-direction: row-reverse;
@@ -162,16 +179,39 @@ a{
         order: 4;
         background-color: darkseagreen;
         display: grid;
-        grid-template-columns: auto auto;
-        grid-template-rows: auto auto;
-        overflow-y: initial;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: auto auto auto;
     }
-    .block_1 img{
+    .block_1 img.frog_pic{
         justify-self: end;
-        object-fit: cover;
-        width: 50%;
+        margin: 5%;
+        height: 90%;
         grid-column: 2;
         grid-row: 1/ span 2;
+    }
+    .pictures{
+        grid-column: 1/ span 2;
+        grid-row: 3;
+        height: auto;
+    }
+    .pictures img{
+        width: 90%;
+        margin: 5%;
+    }
+
+    .block_2_page{
+        order: 1;
+        position: sticky;
+        top: 0;
+        height: 30px;
+        background-size: cover;
+        background-image: url('Картинки/Спектр.png');
+        padding-right: 2vh;
+        text-align: right;
+        font-size: 8px;
+    }
+    .block_2_page h1{
+        font-family: 'Arial Black',serif;
     }
 
     .block_2 {
@@ -204,7 +244,6 @@ a{
     .block_5{
         order: 3;
         background-color: lightblue;
-        overflow-y: initial;
     }
     .block_5 text{
         padding: 20px;
