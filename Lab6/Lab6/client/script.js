@@ -10,7 +10,7 @@ tabForm.addEventListener('submit', async (e) => {
     const tabContent = textArea.value.trim();
 
     if (!tabName || !tabContent) {
-        alert('Fill all fields!');
+        alert('Заповніть всі поля!');
         return;
     }
 

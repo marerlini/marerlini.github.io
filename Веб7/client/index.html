@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>Жабки</title>
+</head>
+<body>
+<main id="app">
+    <div class="main_block">
+        <div class="block_1">
+            <img src="Картинки/Жаба.jpg" alt="Жаба в шапочці">
+            <h2>Зелені речі</h2>
+            <ul>
+                <li>Жаби</li>
+                <li>Конюшина</li>
+                <li>Трава</li>
+                <li>Інша зелень</li>
+                <li>Огірки</li>
+            </ul>
+        </div>
+        <div class="block_2">
+            <h1>Чому зелений накращий колір?</h1>
+        </div>
+        <div class="block_5">
+            <div class="block_3" >
+                <h1>Бо того</h1>
+            </div>
+
+            <div class="content-section">
+                <canvas id="myCanvas" width="480" height="320"></canvas>
+                <div class="controls">
+                    <button id="play">Почати анімацію</button>
+                    <button id="close" style="display: none;">Закрити</button>
+                    <button id="start" style="display: none;">Почати</button>
+                    <button id="stop" style="display: none;">Зупинити</button>
+                    <button id="reload" style="display: none;">Перезавантажити</button>
+                    <p style="display: none;" id="collision">Менший круг перекрився більшим</p>
+                </div>
+            </div>
+
+            <div class="sider">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Повідомлення</th>
+                        <th>Локальний час</th>
+                        <th>Серверний час</th>
+                    </tr>
+                    </thead>
+                    <tbody id="local-events"></tbody>
+                    <tbody id="server-events"></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="block_4">
+            <h2>Інші непогані кольори</h2>
+            <nav>
+                <ul class="colors">
+                    <li><a href="index.html">На головну сторінку</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="block_6">
+            <h2>Погладьте котика</h2>
+            <div><img src="Картинки/Котик.png" alt="Example Image" usemap="#pet_cat">
+            <map name="pet_cat">
+                <area shape="rect" coords="20,0,70px,50px" alt="Rectangle Area" href="https://youtu.be/dQw4w9WgXcQ?si=DRN4toTKd62-CNqM">
+            </map></div>
+        </div>
+    </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
