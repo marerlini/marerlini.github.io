@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackenbush</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="difficultyMenu" style="display: block;">
+    <label for="difficulty">Виберіть рівень складності:</label>
+    <select id="difficulty">
+        <option value="easy">Легкий</option>
+        <option value="medium">Середній</option>
+        <option value="hard" selected>Складний</option>
+    </select>
+    <button onclick="confirmDifficulty()">Підтвердити</button>
+</div>
+<div id="menu" style="display: none;">
+    <button id="loadGraph1" onclick="loadGraph(0)">Машинка</button>
+    <button id="loadGraph2" onclick="loadGraph(1)">Медузка</button>
+    <button id="loadGraph3" onclick="loadGraph(2)">Будиночок</button>
+    <button id="loadGraph4" onclick="loadGraph(3)">Тваринка</button>
+    <button id="loadGraph5" onclick="loadGraph(4)">граф</button>
+    <button id="loadGraph6" onclick="loadGraph(5)">граф 2</button>
+
+</div>
+<canvas id="graphCanvas" style="display: none;"></canvas>
+<div id="controls" style="display: none;">
+    <p id="turnIndicator">Хід: Гравець</p>
+    <button id="returnToMenu" onclick="returnToMenu()">Повернутись в меню</button>
+</div>
+<script src="index.js"></script>
+</body>
+</html>
