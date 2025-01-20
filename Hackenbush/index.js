@@ -656,9 +656,9 @@ function evaluateMove(graph, edge) {
 
     let heuristic = 0;
 
-    if (isNodeConnectedToGround(graph, edge.from) && !isNodeConnectedToGround(graph, edge.to)) {
-        heuristic += 3;
-    }
+    // if (isNodeConnectedToGround(graph, edge.from) && !isNodeConnectedToGround(graph, edge.to)) {
+    //     heuristic += 3;
+    // }
 
     return grundyNumber + heuristic;
 }
