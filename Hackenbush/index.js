@@ -489,6 +489,7 @@ function computerMoveEasy(graph) {
     processComputerMove(graph);
 }
 
+
 function countGroundEdges(graph) {
     let groundEdgesCount = 0;
 
@@ -503,13 +504,28 @@ function countGroundEdges(graph) {
 
 function computerMoveMedium(graph) {
     let bestEdge = null;
-    let bestScore = 0;
+    let bestScore = -Infinity;
     const groundEdgesCount = countGroundEdges(graph);
 
     for (const edge of graph.edges) {
         if (!edge.deleted) {
+            const fromNode = graph.nodes[edge.from];
+            const toNode = graph.nodes[edge.to];
+            let score = 0;
 
-            const score = evaluateGraphMedium(graph, edge, groundEdgesCount);
+            if(groundEdgesCount <= 2 && (fromNode.isGround || toNode.isGround)){
+                score = -10000;
+            }else{
+                edge.deleted = true;
+                const removedEdges = removeIsolatedNodesWithBackup(graph);
+
+                score = evaluateGraph(graph, groundEdgesCount);
+
+                edge.deleted = false;
+                removedEdges.forEach(edge => {
+                    edge.deleted = false;
+                });
+            }
 
             if (score > bestScore) {
                 bestScore = score;
@@ -522,44 +538,27 @@ function computerMoveMedium(graph) {
         selectedEdge = bestEdge;
         processComputerMove(graph);
     }
-    else{
-        computerMoveEasy(graph);
-    }
 }
 
-function evaluateGraphMedium(graph, edge, groundEdgesCount) {
+function evaluateGraph(graph, groundEdgesCount) {
     let score = 0;
-    const fromNode = graph.nodes[edge.from];
-    const toNode = graph.nodes[edge.to];
 
-    if(groundEdgesCount <= 2 && (fromNode.isGround || toNode.isGround)){
-        return -100000;
-    }else{
-        edge.deleted = true;
-        const removedEdges = removeIsolatedNodesWithBackup(graph);
-
-        graph.edges.forEach(edge => {
-            if (!edge.deleted) {
-                const fromNode = graph.nodes[edge.from];
-                const toNode = graph.nodes[edge.to];
-                if (fromNode.isGround || toNode.isGround) {
-                    score += 5;
-                } else {
-                    score += 1;
-                }
+    graph.edges.forEach(edge => {
+        if (!edge.deleted) {
+            const fromNode = graph.nodes[edge.from];
+            const toNode = graph.nodes[edge.to];
+            if (fromNode.isGround || toNode.isGround) {
+                score += 5;
+            } else {
+                score += 1;
             }
-        });
-
-        edge.deleted = false;
-        removedEdges.forEach(edge => {
-            edge.deleted = false;
-        });
-
-        if(groundEdgesCount > 2){
-            return score;
-        } else{
-            return -score;
         }
+    });
+
+    if(groundEdgesCount > 2){
+        return score;
+    } else{
+        return -score;
     }
 }
 
@@ -616,8 +615,8 @@ function removeIsolatedNodesWithBackup(graph) {
 }
 
 
+
 function calculateGrundyNumber(graph, edge) {
-    // Видалити ребро тимчасово
     edge.deleted = true;
     const removedEdges = removeIsolatedNodesWithBackup(graph);
 
@@ -631,12 +630,10 @@ function calculateGrundyNumber(graph, edge) {
         return subgraphEdges.length;
     });
 
-    // Відновити ребро
     edge.deleted = false;
     removedEdges.forEach(edge => {
         edge.deleted = false;
     });
-    // Повернути Гранді-число графа
     return grundyNumbers.reduce((acc, num) => acc ^ num, 0);
 }
 
@@ -657,14 +654,12 @@ function isNodeConnectedToGround(graph, nodeIndex) {
 function evaluateMove(graph, edge) {
     const grundyNumber = calculateGrundyNumber(graph, edge);
 
-    // Евристична оцінка
     let heuristic = 0;
 
     if (isNodeConnectedToGround(graph, edge.from) && !isNodeConnectedToGround(graph, edge.to)) {
-        heuristic += 5; // Ребро важливе для противника
+        heuristic += 3;
     }
 
-    // Загальна оцінка
     return grundyNumber + heuristic;
 }
 
@@ -720,33 +715,29 @@ function computerMoveHard(graph) {
             for (const edge of edges) {
                 if (edge.deleted) continue;
 
-                // Перевірка критичності ребра землі
                 if (isCriticalGroundEdge(graph, edge)) {
                     const connectedEdge = findEdgeConnectedToCritical(graph, edge);
                     if (connectedEdge) {
                         bestEdge = connectedEdge;
-                        return maxEval; // Повертаємо одразу, бо знайшли важливий хід
+                        return maxEval;
                     }
-                    continue; // Якщо немає пов'язаного, продовжуємо
+                    continue;
                 }
 
-                // Видалити ребро і оновити граф
                 edge.deleted = true;
                 const removedEdges = removeIsolatedNodesWithBackup(graph);
 
                 const eval = minimax(graph, depth - 1, alpha, beta, false);
 
-                // Відновити граф
                 edge.deleted = false;
                 removedEdges.forEach((e) => (e.deleted = false));
 
-                // Оновити максимальну оцінку та найкращий хід
                 if (eval > maxEval) {
                     maxEval = eval;
-                    if (depth === 3) bestEdge = edge; // Зберегти найкращий хід
+                    if (depth === 3) bestEdge = edge;
                 }
                 alpha = Math.max(alpha, eval);
-                if (beta <= alpha) break; // Альфа-бета відсікання
+                if (beta <= alpha) break;
             }
             return maxEval;
         } else {
@@ -754,28 +745,24 @@ function computerMoveHard(graph) {
             for (const edge of edges) {
                 if (edge.deleted) continue;
 
-                // Видалити ребро і оновити граф
                 edge.deleted = true;
                 const removedEdges = removeIsolatedNodesWithBackup(graph);
 
                 const eval = minimax(graph, depth - 1, alpha, beta, true);
 
-                // Відновити граф
                 edge.deleted = false;
                 removedEdges.forEach((e) => (e.deleted = false));
 
                 minEval = Math.min(minEval, eval);
                 beta = Math.min(beta, eval);
-                if (beta <= alpha) break; // Альфа-бета відсікання
+                if (beta <= alpha) break;
             }
             return minEval;
         }
     }
 
-    // Виклик мінімаксу
     minimax(graph, 3, -Infinity, Infinity, true);
 
-    // Повернути найкращий хід
     if (bestEdge) {
         selectedEdge = bestEdge;
         processComputerMove(graph);
