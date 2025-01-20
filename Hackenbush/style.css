@@ -4,10 +4,30 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    background-color: #FBF5DD ;
+}
+button{
+    background-color: #A6CDC6 ;
+    font-size: 150%;
+    border: 4px solid #16404D;
+    border-radius: 4px;
+    padding: 6px;
+    margin: 3px;
+}
+p{
+    font-size: 200%;
 }
 
 #graphCanvas {
-    border: 1px solid black;
-
+    border: 5px solid #DDA853;
+    border-radius: 4px;
+    height: 615px;
 }
+#difficultyMenu label{
+    font-size: 200%;
+}
+#difficultyMenu select{
+    margin: 20px;
+    font-size: 150%;
+}
+

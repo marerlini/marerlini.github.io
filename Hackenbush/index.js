@@ -318,7 +318,7 @@ function drawGroundLine() {
     ctx.beginPath();
     ctx.moveTo(0, canvas.height - 15);
     ctx.lineTo(canvas.width, canvas.height - 15);
-    ctx.strokeStyle = 'black';
+    ctx.strokeStyle = '#322C2B';
     ctx.setLineDash([10, 5]);
     ctx.lineWidth = 5;
     ctx.stroke();
@@ -335,14 +335,14 @@ function drawGraph() {
         ctx.beginPath();
         ctx.moveTo(fromNode.x, fromNode.y);
         ctx.lineTo(toNode.x, toNode.y);
-        ctx.strokeStyle = (edge === selectedEdge) ? 'green' : edge.deleted ? 'gray' : 'black';
+        ctx.strokeStyle = (edge === selectedEdge) ? '#DDA853' : edge.deleted ? 'gray' : '#322C2B';
         ctx.lineWidth = 5;
         ctx.stroke();
     });
     graph.nodes.forEach(node => {
         ctx.beginPath();
         ctx.arc(node.x, node.y, 10, 0, Math.PI * 2);
-        ctx.fillStyle = node.deleted ? 'gray' : 'black';
+        ctx.fillStyle = node.deleted ? 'gray' : '#322C2B';
         ctx.fill();
     });
 }
