@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>UI controls</h1>
+
+<div class="container">
+
+    <div class="element">
+        <label>Radiobutton</label>
+        <label for="r1"> <input type="radio" name="radio" id="r1"> This</label><br>
+        <label for="r2"> <input type="radio" name="radio" id="r2"> That</label>
+        <div class="tooltiptext">A radio button is a user interface control that lets a user select only one option from a set of mutually exclusive choices.</div>
+    </div>
+
+    <div class="element">
+        <label>Checkbox</label>
+        <label for="c1"> <input type="checkbox" id="c1"> First option</label>
+        <label for="c1"> <input type="checkbox" id="c2"> Another option</label>
+        <label for="c1"> <input type="checkbox" id="c3"> One more option</label>
+        <div class="tooltiptext">A checkbox in a user interface is a small, interactive square that allows users to select one or more options from a list, or to indicate a binary choice.</div>
+    </div>
+
+    <div class="element">
+        <label>Text input</label>
+        <input type="text" placeholder="Type here">
+        <div class="tooltiptext">Text input in a user interface refers to a component that allows users to enter textual information into a system or application.</div>
+    </div>
+
+    <div class="element">
+        <label>Tabs</label>
+        <div class="tabs">
+            <button class="active-tab" onclick="showTab('tab1', this)">First tab</button>
+            <button onclick="showTab('tab2', this)">Second tab</button>
+        </div>
+        <div id="tab1" class="tab-content active">Some information</div>
+        <div id="tab2" class="tab-content">Some more interesting information</div>
+        <div class="tooltiptext">Tabs organize content across different screens, data sets, and other interactions.</div>
+    </div>
+
+    <div class="element">
+        <label>Button</label>
+        <button onclick="showText()">Click</button>
+        <div id="buttonText" style="display: none; margin-top: 10px;">
+            Yay!
+        </div>
+        <div class="tooltiptext">Button is a clickable element that allows users to initiate an action or make a choice.</div>
+    </div>
+
+
+    <div class="element">
+        <label>Text label</label>
+        <span>This is text.</span>
+        <div class="tooltiptext">Text label is a static piece of text used to identify, describe, or provide information about another UI element, such as an input field or a button, or to display constant text content to the user.</div>
+    </div>
+
+    <div class="element">
+        <label>Link</label>
+        <a href="https://example.com" target="_blank">Example link</a>
+        <div class="tooltiptext">Link a clickable element, usually styled as text, that directs the user to another location, such as a new web page, a different section of the current page, or a related resource.</div>
+    </div>
+
+    <div class="element">
+        <label>Tooltip</label>
+        <div class="tooltiptext">Tooltip is a small pop-up box of text that provides additional context or information when a user interacts with a specific interface element, such as hovering their mouse over an icon or text.</div>
+    </div>
+
+    <div class="element">
+        <label>Dropdown list</label>
+        <select>
+            <option>Choice one</option>
+            <option>Choice two</option>
+            <option>Choice five</option>
+            <option>Choice ten</option>
+        </select>
+        <div class="tooltiptext">Dropdown list or menu allows users to select one option from a predefined list of choices.</div>
+    </div>
+
+    <div class="element">
+        <label>Data grid</label>
+        <table>
+            <thead>
+            <tr><th>First column</th><th>Second</th><th>Last</th></tr>
+            </thead>
+            <tbody>
+            <tr><td>Row info</td><td>More info</td><td>Other info</td></tr>
+            <tr><td>Second row info</td><td>More more info</td><td>Just info</td></tr>
+            </tbody>
+        </table>
+        <div class="tooltiptext">Data grid presents information in a structured format of rows and columns. </div>
+    </div>
+
+</div>
+
+<script>
+    function showTab(id, buttonElement) {
+        document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+
+        document.querySelectorAll('.tabs button').forEach(btn => btn.classList.remove('active-tab'));
+        buttonElement.classList.add('active-tab');
+    }
+
+</script>
+<script>
+    function showText() {
+        document.getElementById("buttonText").style.display = "block";
+    }
+</script>
+
+
+</body>
+</html>
