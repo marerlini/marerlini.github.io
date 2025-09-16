@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Реєстрація</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f1f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .signup-container {
+            background-color: #999;
+            padding: 30px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            padding: 10px;
+            align-items: center;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #333;
+            min-width: 120px;
+            text-align: right;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+            background-color: #f9f9f9;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #555;
+            background-color: #fff;
+        }
+
+        input.invalid {
+            border-color: #ff0000;
+            background-color: #ffe6e6;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: help;
+            width: 100%;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 280px;
+            background-color: #777;
+            color: white;
+            text-align: left;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: space-around;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .signup-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .signup-btn:hover {
+            background-color: #45a049;
+        }
+
+        .cancel-btn {
+            background-color: #817a79;
+            color: white;
+        }
+
+        .cancel-btn:hover {
+            background-color: #666;
+        }
+
+        .error-message {
+            color: #ff0000;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+            text-align: center;
+            grid-column: span 2;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 10px;
+            padding: 8px;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+<div class="signup-container">
+    <form id="signupForm">
+        <div class="form-row">
+            <label for="username" class="required">User name:</label>
+            <div class="tooltip">
+                <input type="text" id="username" name="username" maxlength="20">
+                <span class="tooltiptext">
+                    User Name must be defined with the following rules:<br>
+                    - the first character must be a letter<br>
+                    - it can contain letters, numbers, underscore, hyphen<br>
+                    - the length is between 12 to 20
+                </span>
+            </div>
+            <div class="error-message" id="usernameError"></div>
+        </div>
+
+        <div class="form-row">
+            <label for="password" class="required">Password:</label>
+            <div class="tooltip">
+                <input type="password" id="password" name="password" maxlength="20">
+                <span class="tooltiptext">
+                    Password must be defined with the following rules:<br>
+                    - password length must be at least 12 characters<br>
+                    - password must contain number, at least one lower case letter<br>
+                    - at least one upper case letter and at least one special character<br>
+                    - allowed special characters: !@#$%^&+=
+                </span>
+            </div>
+            <div class="error-message" id="passwordError"></div>
+        </div>
+
+        <div class="form-row">
+            <label for="confirmPassword" class="required">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" maxlength="20">
+            <div class="error-message" id="confirmPasswordError"></div>
+        </div>
+
+        <div class="buttons-container">
+            <button type="submit" class="signup-btn" title="Click to Sign Up">Sign up</button>
+            <button type="button" class="cancel-btn" title="Click to Cancel" onclick="window.location.href='index.html'">Cancel</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Скидання помилок
+        resetValidation();
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+
+        let isValid = true;
+
+        // Валідація username
+        const usernameRegex = /^[a-zA-Z][a-zA-Z0-9_-]{11,19}$/;
+        if (!usernameRegex.test(username)) {
+            markFieldInvalid('username', 'Ім\'я користувача не відповідає вимогам');
+            isValid = false;
+        }
+
+        // Валідація password
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&+=]).{12,20}$/;
+        if (!passwordRegex.test(password)) {
+            markFieldInvalid('password', 'Пароль не відповідає вимогам безпеки');
+            isValid = false;
+        }
+
+        // Перевірка співпадіння паролів
+        if (password !== confirmPassword) {
+            markFieldInvalid('confirmPassword', 'Паролі не співпадають');
+            isValid = false;
+        }
+
+        if (isValid) {
+            // Якщо все валідно - показуємо повідомлення про успіх
+            alert('Реєстрація успішна!');
+            // Тут можна додати перенаправлення або інші дії
+        }
+    });
+
+    // Функція для відмітки поля як невалідного
+    function markFieldInvalid(fieldId, errorMessage) {
+        const field = document.getElementById(fieldId);
+        const errorElement = document.getElementById(fieldId + 'Error');
+
+        field.classList.add('invalid');
+        errorElement.textContent = errorMessage;
+        errorElement.style.display = 'block';
+    }
+
+    // Функція для скидання валідації
+    function resetValidation() {
+        const fields = ['username', 'password', 'confirmPassword'];
+
+        fields.forEach(fieldId => {
+            const field = document.getElementById(fieldId);
+            const errorElement = document.getElementById(fieldId + 'Error');
+
+            field.classList.remove('invalid');
+            errorElement.style.display = 'none';
+        });
+    }
+
+    // Додаємо обробники подій для автоматичного прибирання помилок при зміні значень
+    document.getElementById('username').addEventListener('input', function() {
+        this.classList.remove('invalid');
+        document.getElementById('usernameError').style.display = 'none';
+    });
+
+    document.getElementById('password').addEventListener('input', function() {
+        this.classList.remove('invalid');
+        document.getElementById('passwordError').style.display = 'none';
+    });
+
+    document.getElementById('confirmPassword').addEventListener('input', function() {
+        this.classList.remove('invalid');
+        document.getElementById('confirmPasswordError').style.display = 'none';
+    });
+</script>
+</body>
+</html>

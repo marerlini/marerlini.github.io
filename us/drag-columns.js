@@ -230,10 +230,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Функція оновлення стану кнопок
     function updateButtonsState() {
         const isWithFilter = document.querySelector('input[name="filterMode"]:checked').value === 'with';
-        const anyCheckboxChecked = Array.from(filterCheckboxes).some(checkbox => checkbox.checked);
 
         clearFiltersBtn.disabled = !isWithFilter;
-        findReportBtn.disabled = !isWithFilter || !anyCheckboxChecked;
+        // Кнопка Find Report завжди активна
+        findReportBtn.disabled = false;
     }
 
     // Обробник зміни радіокнопок
@@ -290,7 +290,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Функція для оновлення лічильника показаних звітів
     function updateShownReportsCount() {
-        const shownCount = tableBody.querySelectorAll('tr').length;
+        const shownCount = tableBody.querySelectorAll('tr:not([style*="display: none"])').length;
         document.querySelector('.footer span:nth-child(2)').textContent = `Shown Reports: ${shownCount}`;
     }
 
@@ -333,6 +333,12 @@ document.addEventListener('DOMContentLoaded', function() {
         restoreAllRows();
 
         const rows = tableBody.querySelectorAll('tr');
+
+        // Якщо немає активних фільтрів - показуємо всі рядки
+        if (Object.keys(filters).length === 0) {
+            updateShownReportsCount();
+            return;
+        }
 
         rows.forEach(row => {
             let shouldShow = true;
