@@ -36,20 +36,20 @@
 <div class="buttons">
     <div class="filters-container">
         <div class="radio-group">
-            <label class="radio-label">
+            <label class="radio-label" title="Simple mode activation">
                 <input type="radio" name="filterMode" value="without" checked> Without filter
             </label>
-            <label class="radio-label">
+            <label class="radio-label" title="Filter mode activation">
                 <input type="radio" name="filterMode" value="with"> With filter
             </label>
         </div>
 
         <div class="checkboxes-row">
             <div class="filter-group">
-                <label class="checkbox-label">
+                <label class="checkbox-label" title="Check to activate Report Id filter">
                     <input type="checkbox" class="filter-checkbox" disabled> Report Id
                 </label>
-                <select class="filter-select" disabled>
+                <select class="filter-select" disabled title="Click to select Report Id">
                     <option value="">All</option>
                     <option value="Bug-101">Bug-101</option>
                     <option value="Task-201">Task-201</option>
@@ -66,10 +66,10 @@
             </div>
 
             <div class="filter-group">
-                <label class="checkbox-label">
-                    <input type="checkbox" class="filter-checkbox" disabled> Severity
+                <label class="checkbox-label" title="Check to activate Severity filter">
+                    <input type="checkbox" class="filter-checkbox" disabled > Severity
                 </label>
-                <select class="filter-select" disabled>
+                <select class="filter-select" disabled title="Click to select Severity">
                     <option value="">All</option>
                     <option value="Major">Major</option>
                     <option value="Medium">Medium</option>
@@ -79,10 +79,10 @@
             </div>
 
             <div class="filter-group">
-                <label class="checkbox-label">
-                    <input type="checkbox" class="filter-checkbox" disabled> Status
+                <label class="checkbox-label" title="Check to activate Status filter">
+                    <input type="checkbox" class="filter-checkbox" disabled > Status
                 </label>
-                <select class="filter-select" disabled>
+                <select class="filter-select" disabled title="Click to select Status">
                     <option value="">All</option>
                     <option value="Open">Open</option>
                     <option value="In Progress">In Progress</option>
@@ -92,10 +92,10 @@
             </div>
 
             <div class="filter-group">
-                <label class="checkbox-label">
-                    <input type="checkbox" class="filter-checkbox" disabled> Reporter
+                <label class="checkbox-label" title="Check to activate Reporter filter">
+                    <input type="checkbox" class="filter-checkbox" disabled > Reporter
                 </label>
-                <select class="filter-select" disabled>
+                <select class="filter-select" disabled title="Click to select Reporter">
                     <option value="">All</option>
                     <option value="TestAdmin">TestAdmin</option>
                     <option value="DevUser">DevUser</option>
@@ -111,10 +111,10 @@
             </div>
 
             <div class="filter-group">
-                <label class="checkbox-label">
-                    <input type="checkbox" class="filter-checkbox" disabled> Assignee
+                <label class="checkbox-label" title="Check to activate Assignee filter">
+                    <input type="checkbox" class="filter-checkbox" disabled > Assignee
                 </label>
-                <select class="filter-select" disabled>
+                <select class="filter-select" disabled title="Click to select Assignee">
                     <option value="">All</option>
                     <option value="TestAdmin">TestAdmin</option>
                     <option value="DevLead">DevLead</option>
@@ -124,10 +124,10 @@
             </div>
 
             <div class="filter-group">
-                <label class="checkbox-label">
-                    <input type="checkbox" class="filter-checkbox" disabled> Issue Type
+                <label class="checkbox-label" title="Check to activate Issue Type filter">
+                    <input type="checkbox" class="filter-checkbox" disabled > Issue Type
                 </label>
-                <select class="filter-select" disabled>
+                <select class="filter-select" disabled title="Click to select Issue Type">
                     <option value="">All</option>
                     <option value="Bug">Bug</option>
                     <option value="Task">Task</option>
@@ -136,8 +136,8 @@
         </div>
 
         <div class="filter-buttons">
-            <button class="clear-filters-btn" disabled>Clear Filters</button>
-            <button class="find-report-btn" disabled>Find Report</button>
+            <button class="clear-filters-btn" disabled title="Click to clear filters">Clear Filters</button>
+            <button class="find-report-btn" disabled title="Click to find the report">Find Report</button>
         </div>
     </div>
 </div>
@@ -345,6 +345,7 @@
             <td>2023-09-21</td>
         </tr>
         </tbody>
+
     </table>
 </div>
 
